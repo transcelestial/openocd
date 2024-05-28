@@ -1490,6 +1490,8 @@ static int kinetis_fill_fcf(struct flash_bank *bank, uint8_t *fcf)
 
 		if(bank_iter->size > 0) { // We only assert on proction blocks address if this bank is available for write
 			assert(bank_iter->prot_blocks);
+		} else {
+			LOG_INFO("Bank %i is protected", bank_idx);
 		}
 
 		if (k_bank->flash_class == FC_PFLASH) {
